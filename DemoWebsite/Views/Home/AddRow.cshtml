@@ -1,0 +1,12 @@
+﻿@using MvcGridTest.HtmlExtensions
+@model MvcGridTest.Models.ProductViewModel
+
+<tr>
+    @using (Html.BeginCollectionItem("ProductList"))
+    {
+        <td>@Html.TextBoxFor(m => m.Id, new {style="width:4em;"})</td>
+        <td>@Html.TextBoxFor(m => m.Name)</td>
+        <td>@Html.TextBoxFor(m => m.Price,"{0:f2}")</td>
+        <td><input type="button" onclick="DeleteRow(this)" value="Delete"/></td>
+    }
+</tr>

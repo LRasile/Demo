@@ -1,0 +1,51 @@
+﻿@using MvcGridTest.HtmlExtensions
+@using MvcGridTest.Models
+@model BasketViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <input type="button" value="Add" onclick="AddRow()"/>
+    <input type="submit" value="Save" />
+    <br />
+    <br />
+    <table id="MyTable">
+        <tr>
+            <td>@Html.LabelFor(m => m.ProductList[0].Id)</td>
+            <td>@Html.LabelFor(m => m.ProductList[0].Name)</td>
+            <td>@Html.LabelFor(m => m.ProductList[0].Price)</td>
+            <td></td>
+        </tr>
+
+        @for (int i = 0; i < Model.ProductList?.Count; i++)
+        {
+            int i1 = i;//for lamda binding
+            @Html.Partial("AddRow", Model.ProductList[i1]);
+        }
+    </table>
+}
+
+@section scripts{
+    <script>
+        
+        function AddRow() {
+            $.ajax({
+                url: '@Url.Action("AddRow")',
+                cache: false,
+                success: function (html) { $("#MyTable").append(html); }
+            });
+
+            $('form').data('validator', null);
+            $.validator.unobtrusive.parse($('form'));
+
+            return false;
+        }
+
+        function DeleteRow(elem) {
+            $(elem).parents("tr:first").remove();
+            return false;
+        }
+
+    </script>
+}

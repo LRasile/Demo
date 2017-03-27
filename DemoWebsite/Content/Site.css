@@ -1,0 +1,196 @@
+﻿* {
+  margin: 0;
+  outline: none;
+}
+
+html,
+body {
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  height: 100%;
+  font-size: 12pt;
+  overflow-x: hidden;
+  background: #fff;
+  color: #444444;
+}
+
+.header {
+  position: relative;
+  z-index: 5;
+  max-width: 950px;
+  height: 60px;
+  text-align: center;
+  line-height: 100px;
+  width: 100%;
+  margin: 0 auto 50px;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 1px 0px #ccc, 0px 1px #555, 2px 1px #ccc, 1px 2px #555;
+}
+
+.backgroundHeader {
+  z-index: 1;
+  width: 100%;
+  position: relative;
+  height: 250px;
+  background: #347;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+  max-width: 950px;
+  min-width: 350px;
+  margin: -250px auto 0;
+  /* equal to footer height */
+  
+  margin-bottom: -100px;
+}
+
+.innerContainer {
+  text-align: center;
+  min-height: 300px;
+  vertical-align: middle;
+  background: #f2f2f2;
+  padding: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin: 20px;
+  padding-bottom: 80px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  width: 200px;
+  margin: 3px;
+  padding: 2px;
+  font-size: 11pt;
+  color: #000;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #999;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-bottom: 1px solid #A0D02D;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  margin-left: 10px;
+  -moz-appearance: none;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: box-shadow 0.2s ease 0s, border 0.2s ease 0s, background-color 0.2s ease 0s;
+}
+
+.button,
+input[type="submit"],
+input[type="button"],
+button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background: #90c01D;
+  min-width: 88px;
+  height: 36px;
+  border-radius: 2px;
+  border: 1px solid #90c01D;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease 0s, box-shadow 0.2s ease 0s, -moz-box-shadow 0.2s ease 0s, -webkit-box-shadow 0.2s ease 0s;
+}
+
+.button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+button:active {
+  background: #A0D02D;
+  -webkit-box-shadow: 0px 9px 21px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 9px 21px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 9px 21px rgba(0, 0, 0, 0.3);
+}
+
+label.error {
+  color: red;
+}
+
+label.error ~ div {
+  border: 1px solid red;
+  box-shadow: 0px 0px 1px red;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  font-size: 8pt;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #458;
+  font-size: 10pt;
+}
+
+.dialogBackground {
+  z-index: 5;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(55, 55, 55, 0.6)
+}
+
+.dialogContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -300px;
+  height: 400px;
+  width: 600px;
+  z-index: 6;
+  background: #eee;
+  border-radius: 10px;
+}
+
+input[type="button"].dialogCloseButton {
+  background: #c0241d;
+  border-color: #c0241d;
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 15px;
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+.input-validation-error {
+    border-bottom: 1px solid red!important;
+    color: red!important;
+}
+
