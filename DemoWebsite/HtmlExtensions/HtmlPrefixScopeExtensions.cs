@@ -4,7 +4,7 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MvcGridTest.HtmlExtensions
+namespace DemoWebsite.HtmlExtensions
 {
     public static class HtmlPrefixScopeExtensions
     {

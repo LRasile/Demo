@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MvcGridTest.Models
+namespace DemoWebsite.Models
 {
     public class ProductViewModel
     {

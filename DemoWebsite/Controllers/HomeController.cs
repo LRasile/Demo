@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MvcGridTest.Code;
-using MvcGridTest.Models;
+using DemoWebsite.Code;
+using DemoWebsite.Models;
 
-namespace MvcGridTest.Controllers
+namespace DemoWebsite.Controllers
 {
     public class HomeController : Controller
     {
@@ -16,9 +16,9 @@ namespace MvcGridTest.Controllers
 
         public ActionResult Index()
         {
-            List<ProductViewModel> productList = _dataLayer.LoadData();
-            var productListViewModel = new BasketViewModel{ProductList = productList};
-            return View(productListViewModel);
+            IList<ProductViewModel> productList = _dataLayer.LoadData();
+            var model = new BasketViewModel{ProductList = productList};
+            return View(model);
         }
 
         [HttpPost]

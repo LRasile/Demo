@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 
-namespace MvcGridTest.Models
+namespace DemoWebsite.Models
 {
     public class BasketViewModel
     {
-        public List<ProductViewModel> ProductList { get; set; }
+        public IList<ProductViewModel> ProductList { get; set; }
     }
 }
