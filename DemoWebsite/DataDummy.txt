@@ -1,0 +1,1 @@
+[{"Id":2,"Name":"Car","Price":15000.0},{"Id":3,"Name":"PC","Price":999.99},{"Id":4,"Name":"Monitor","Price":259.99},{"Id":5,"Name":"Paper","Price":1.99},{"Id":6,"Name":"Mouse","Price":45.99},{"Id":7,"Name":"Keyboard","Price":89.99}]
