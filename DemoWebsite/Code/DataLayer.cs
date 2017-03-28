@@ -5,8 +5,8 @@ namespace DemoWebsite.Code
 {
     public class DataLayer
     {
-        private const string Path =
-            @"F:\Documents\Visual Studio 2015\Projects\Demo\DemoWebsite\DataDummy.txt";
+        private const string Path = @"C:\Git\Source\Demo\DemoWebsite\DataDummy.txt";
+            //@"F:\Documents\Visual Studio 2015\Projects\Demo\DemoWebsite\DataDummy.txt";
 
         public IList<ProductViewModel> LoadData()
         {
