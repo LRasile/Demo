@@ -1,0 +1,8 @@
+﻿@model DateTime?
+@{
+    string value = Model.HasValue && Model != DateTime.MinValue 
+                    ? Model.Value.ToShortDateString() 
+                    : string.Empty;
+}
+@Html.TextBox("", value ,new {@class = "form-control date-control", data_date = "date" })
+

@@ -1,0 +1,8 @@
+﻿@model TimeSpan?
+@{
+    string value = Model.HasValue && Model.Value != TimeSpan.Zero 
+                    ? $"{Model.Value.Hours:D2}:{Model.Value.Minutes:D2}" 
+                    : string.Empty;
+}
+@Html.TextBox("", value, new {@class = "form-control", data_time = "time" })
+

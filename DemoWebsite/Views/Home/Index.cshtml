@@ -5,7 +5,7 @@
 }
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    <input type="button" value="Add" onclick="AddRow()"/>
+    <input type="button" value="Add" onclick="AddRow()" />
     <input type="submit" value="Save" />
     <br />
     <br />
@@ -21,12 +21,26 @@
         {
             @Html.Partial("AddRow", Model.ProductList[i]);
         }
+        <tr class="DataGridPager" nowrap="nowrap">
+            <td colspan="4">
+                <span id="Prev">< Prev</span>
+                <a id="Prev" data-page-no="0" style="display:none">< Prev</a>
+                &nbsp;
+                <span id="Next" style="display:none">Next ></span>
+                <a id="Next" data-page-no="1">Next ></a>
+            </td>
+        </tr>
     </table>
 }
 
 @section scripts{
+    <script src="~/Scripts/TablePaging.js"></script>
     <script>
         
+        $(function () {
+            BindPagingToTable("#MyTable", 5);
+        });
+
         function AddRow() {
             $.ajax({
                 url: '@Url.Action("AddRow")',
@@ -38,7 +52,64 @@
                     $.validator.unobtrusive.parse($('form'));
                 }
             });
+            return false;
+        }
 
+        function DeleteRow(elem) {
+            $(elem).parents("tr:first").remove();
+            return false;
+        }
+
+    </script>
+}@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <input type="button" value="Add" onclick="AddRow()" />
+    <input type="submit" value="Save" />
+    <br />
+    <br />
+    <table id="MyTable">
+        <tr>
+            <td>@Html.LabelFor(m => m.ProductList[0].Id)</td>
+            <td>@Html.LabelFor(m => m.ProductList[0].Name)</td>
+            <td>@Html.LabelFor(m => m.ProductList[0].Price)</td>
+            <td></td>
+        </tr>
+
+        @for (int i = 0; i < Model.ProductList?.Count; i++)
+        {
+            @Html.Partial("AddRow", Model.ProductList[i]);
+        }
+        <tr class="DataGridPager" nowrap="nowrap">
+            <td colspan="4">
+                <span id="Prev">< Prev</span>
+                <a id="Prev" data-page-no="0" style="display:none">< Prev</a>
+                &nbsp;
+                <span id="Next" style="display:none">Next ></span>
+                <a id="Next" data-page-no="1">Next ></a>
+            </td>
+        </tr>
+    </table>
+}
+
+@section scripts{
+    <script src="~/Scripts/TablePaging.js"></script>
+    <script>
+        
+        $(function () {
+            BindPagingToTable("#MyTable", 5);
+        });
+
+        function AddRow() {
+            $.ajax({
+                url: '@Url.Action("AddRow")',
+                cache: false,
+                success: function(html) {
+                    $("#MyTable").append(html);
+
+                    $('form').data('validator', null);
+                    $.validator.unobtrusive.parse($('form'));
+                }
+            });
             return false;
         }
 

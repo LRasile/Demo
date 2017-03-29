@@ -1,7 +1,7 @@
 ﻿@using DemoWebsite.HtmlExtensions
 @model DemoWebsite.Models.ProductViewModel
 
-<tr>
+<tr data-row>
     @using (Html.BeginCollectionItem("ProductList"))
     {
         <td>@Html.TextBoxFor(m => m.Id, new {style="width:4em"})</td>

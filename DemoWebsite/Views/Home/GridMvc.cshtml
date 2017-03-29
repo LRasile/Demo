@@ -1,0 +1,16 @@
+﻿@using GridMvc.Html
+@model DemoWebsite.Models.BasketViewModel
+
+@{
+    ViewBag.Title = "GridMvc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GridMvc</h2>
+
+@Html.Grid(Model.ProductList).Columns(columns =>
+{
+    columns.Add(c => c.Id).Filterable(true);
+    columns.Add(c => c.Name).Filterable(true);
+    columns.Add(c => c.Price).Filterable(true);
+}).WithPaging(5).Sortable(true)

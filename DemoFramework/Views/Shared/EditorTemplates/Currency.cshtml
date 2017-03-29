@@ -1,0 +1,7 @@
+﻿@model decimal?
+@{
+    string value = Model.HasValue && Model.Value != decimal.Zero
+                    ? $"{Model.Value:F}"
+                    : string.Empty;
+}
+@Html.TextBox("", value, new { @class = "form-control", data_currency = "currency" })
