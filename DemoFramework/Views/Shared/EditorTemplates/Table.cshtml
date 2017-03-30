@@ -1,30 +1,12 @@
-﻿@model IList<dynamic>
+﻿@using System.Collections
+@model dynamic
 
-@for(int i = 0; i < Model?.Count-1; i++)
+@if (Model is IEnumerable)
 {
-    @Html.EditorFor(m=>m[i])
+    <table class="table-condensed">
+        @foreach (var _ in Enumerable.ToList(Model))
+        {
+            @Html.EditorFor(m => _, "TableRow")
+        }
+    </table>
 }
-
-
-
-
-
-
-@*@foreach (var prop in ViewData.ModelMetadata.Properties
-                            .Where(p => p.ShowForEdit))
-{
-    if (prop.TemplateHint == "HiddenInput")
-    {
-        @Html.Hidden(prop.PropertyName)
-    }
-    else
-    {
-        <div class="form-group">
-            @Html.Label(prop.PropertyName, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.Editor(prop.PropertyName)
-                @Html.ValidationMessage(prop.PropertyName)
-            </div>
-        </div>
-    }
-}*@

@@ -1,0 +1,27 @@
+﻿@using DemoFramework.HtmlExtensions
+@model dynamic
+
+@{
+    string prefix = ViewData.TemplateInfo.HtmlFieldPrefix;
+    prefix = prefix.Remove(prefix.Length - 2);
+}
+
+<tr>
+    @using (Html.BeginCollectionItem(prefix))
+    {
+        foreach (var prop in ViewData.ModelMetadata.Properties
+            .Where(p => p.ShowForEdit))
+        {
+            if (prop.TemplateHint == "HiddenInput")
+            {
+                @Html.Hidden(prop.PropertyName)
+            }
+            else
+            {
+                <td>
+                    @Html.Editor(prop.PropertyName)
+                </td>
+            }
+        }
+    }
+</tr>

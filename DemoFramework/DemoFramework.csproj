@@ -257,6 +257,8 @@
     <Content Include="Views\Shared\EditorTemplates\CreditCard.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Duration.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Table.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TableRow.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
