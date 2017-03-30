@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using DemoFramework.Code;
+﻿using DemoFramework.Code;
 using DemoFramework.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 
 namespace DemoFramework.Controllers
@@ -19,7 +19,7 @@ namespace DemoFramework.Controllers
         public ActionResult Index()
         {
             IList<ProductViewModel> productList = _dataLayer.LoadData();
-            var model = new BasketViewModel();// { ProductList = productList };
+            var model = new BasketViewModel { ProductList = productList };
             return View(model);
         }
 
@@ -35,7 +35,7 @@ namespace DemoFramework.Controllers
             var model = new ProductViewModel();
             return PartialView(model);
         }
-        
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

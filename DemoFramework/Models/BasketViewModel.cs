@@ -33,6 +33,7 @@ namespace DemoFramework.Models
         [Required, DataType(DataType.Duration)]
         public string Duration { get; set; }
 
-        //public IList<ProductViewModel> ProductList { get; set; }
+        [DataType("Table")]
+        public IList<ProductViewModel> ProductList { get; set; }
     }
 }

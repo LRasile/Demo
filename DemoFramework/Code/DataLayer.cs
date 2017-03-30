@@ -5,8 +5,8 @@ namespace DemoFramework.Code
 {
     public class DataLayer
     {
-        private const string Path =// @"C:\Git\Source\Demo\DemoFramework\DataDummy.txt";
-            @"C:\Users\Leonardo's PC\Source\Repos\Demo\DemoFramework\DataDummy.txt";
+        private const string Path = @"C:\Git\Source\Demo\DemoFramework\DataDummy.txt";
+            //@"C:\Users\Leonardo's PC\Source\Repos\Demo\DemoFramework\DataDummy.txt";
 
         public IList<ProductViewModel> LoadData()
         {
