@@ -3,10 +3,19 @@
 
 @if (Model is IEnumerable)
 {
+    bool isHeaderBuilt = false;
+
     <table class="table-condensed">
         @foreach (var _ in Enumerable.ToList(Model))
         {
+            if (!isHeaderBuilt)
+            {
+                isHeaderBuilt = true;
+                @Html.EditorFor(m => _, "TableHeader")
+            }
             @Html.EditorFor(m => _, "TableRow")
         }
     </table>
+
+    <input class="btn btn-info" type="button" value="Add" onclick="FrameworkAddRow()" />
 }

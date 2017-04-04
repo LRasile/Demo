@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+<tr>
+    @foreach (var prop in ViewData.ModelMetadata.Properties
+                                .Where(p => p.ShowForEdit))
+    {
+        if (prop.TemplateHint != "HiddenInput")
+        {
+            <td>
+                @Html.Label(prop.PropertyName, new { @class = "control-label" })
+            </td>
+        }
+    }
+    <td><!--Column for delete button--></td>
+</tr>
