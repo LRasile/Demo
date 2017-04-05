@@ -26,7 +26,7 @@ namespace DemoFramework.Controllers
         [HttpPost]
         public ActionResult Index(BasketViewModel model)
         {
-            //_dataLayer.SaveData(model.ProductList);
+            _dataLayer.SaveData(model.ProductList);
             return RedirectToAction("Index");
         }
 

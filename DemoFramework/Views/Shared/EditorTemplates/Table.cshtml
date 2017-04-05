@@ -3,19 +3,24 @@
 
 @if (Model is IEnumerable)
 {
-    bool isHeaderBuilt = false;
+    dynamic genericType = Model.GetType().GetProperty("Item").PropertyType;
+    //new generic type variable length of 1 char for matching for each below
+    dynamic g = Activator.CreateInstance(genericType);
 
-    <table class="table-condensed">
-        @foreach (var _ in Enumerable.ToList(Model))
+    <table class="table-condensed" id="@ViewData.ModelMetadata.PropertyName">
+        
+        @Html.EditorFor(m => g, "TableHeader")
+
+        @foreach (dynamic i in Enumerable.ToList(Model))
         {
-            if (!isHeaderBuilt)
-            {
-                isHeaderBuilt = true;
-                @Html.EditorFor(m => _, "TableHeader")
-            }
-            @Html.EditorFor(m => _, "TableRow")
+            @Html.EditorFor(m => i, "TableRow")
         }
+
     </table>
 
-    <input class="btn btn-info" type="button" value="Add" onclick="FrameworkAddRow()" />
+    <table style="display: none;" class="NewRow" id='@(ViewData.ModelMetadata.PropertyName + "NewRow")'>
+        @Html.EditorFor(m => g, "TableRow")
+    </table>
+
+    <input class="btn btn-info" type="button" value="Add" onclick="FrameworkAddRow('@ViewData.ModelMetadata.PropertyName')" />
 }

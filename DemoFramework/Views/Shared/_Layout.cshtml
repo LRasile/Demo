@@ -40,18 +40,47 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
 
-    <script>
-        $(function () {
-            $(".date-control").datepicker();
+<script>
+    $(function() {
+        $("form").submit(function () {
+            //clears down template rows
+            $("table.NewRow").remove();
+            return true;
         });
-        function FrameworkDeleteRow(elem) {
-            $(elem).parents("tr:first").remove();
-            return false;
-        }
-        function FrameworkAddRow() {
-            alert("Todo");
-        }
-    </script>
+    });
+
+    //no replace all in js so did my own
+    String.prototype.replaceAll = function (search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
+    var newId = 0;
+
+    $(function () {
+        $(".date-control").datepicker();
+    });
+
+    function FrameworkDeleteRow(elem) {
+        $(elem).parents("tr:first").remove();
+        return false;
+    }
+
+    function FrameworkAddRow(tableId) {
+        var tableSelector = "#" + tableId;
+        var oldGuid = $(tableSelector + "NewRow").find("input[name='" + tableId + ".index']").val();
+        var rowNewId = newId++;
+        var rowHtml = $(tableSelector + "NewRow").html();
+
+        rowHtml = rowHtml.replaceAll(oldGuid, rowNewId);
+        $(tableSelector).append(rowHtml);
+
+        $('form').data('validator', null);
+        $.validator.unobtrusive.parse($('form'));
+
+        return false;
+    }
+</script>
     
     @RenderSection("scripts", required: false)
 </body>
